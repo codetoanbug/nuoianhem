@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nuôi Anh Em - Cho anh em ăn no nè! 🍗</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1 class="title">🎮 NUÔI ANH EM 🎮</h1>
+            <p class="subtitle">Anh em đói bụng rồi, cho ăn đi! 😭</p>
+        </header>
+
+        <div class="stats-bar">
+            <div class="stat">
+                <span class="stat-label">Độ đói:</span>
+                <div class="hunger-bar">
+                    <div class="hunger-fill" id="hungerBar"></div>
+                </div>
+                <span id="hungerText">100%</span>
+            </div>
+            <div class="stat">
+                <span class="stat-label">Độ vui:</span>
+                <span class="stat-value" id="happiness">😐</span>
+            </div>
+            <div class="stat">
+                <span class="stat-label">Tiền còn:</span>
+                <span class="stat-value" id="money">1000đ</span>
+            </div>
+        </div>
+
+        <div class="character-container">
+            <div class="character" id="character">
+                <div class="face">
+                    <div class="eyes">
+                        <div class="eye left"></div>
+                        <div class="eye right"></div>
+                    </div>
+                    <div class="mouth" id="mouth"></div>
+                </div>
+                <div class="body"></div>
+                <div class="arms">
+                    <div class="arm left"></div>
+                    <div class="arm right"></div>
+                </div>
+            </div>
+            <div class="speech-bubble" id="speechBubble">
+                Đói quá... cho ăn đi anh em ơi! 🥺
+            </div>
+        </div>
+
+        <div class="food-menu">
+            <h2>🍴 Thực Đơn (Menu Xịn Xò)</h2>
+            <div class="food-grid">
+                <button class="food-item" data-food="bánh mì" data-price="20" data-hunger="15">
+                    <span class="food-icon">🥖</span>
+                    <span class="food-name">Bánh Mì</span>
+                    <span class="food-price">20đ</span>
+                </button>
+                <button class="food-item" data-food="phở" data-price="50" data-hunger="30">
+                    <span class="food-icon">🍜</span>
+                    <span class="food-name">Phở</span>
+                    <span class="food-price">50đ</span>
+                </button>
+                <button class="food-item" data-food="cơm tấm" data-price="45" data-hunger="35">
+                    <span class="food-icon">🍚</span>
+                    <span class="food-name">Cơm Tấm</span>
+                    <span class="food-price">45đ</span>
+                </button>
+                <button class="food-item" data-food="trà sữa" data-price="35" data-hunger="10">
+                    <span class="food-icon">🧋</span>
+                    <span class="food-name">Trà Sữa</span>
+                    <span class="food-price">35đ</span>
+                </button>
+                <button class="food-item" data-food="gà rán" data-price="60" data-hunger="40">
+                    <span class="food-icon">🍗</span>
+                    <span class="food-name">Gà Rán</span>
+                    <span class="food-price">60đ</span>
+                </button>
+                <button class="food-item" data-food="lẩu" data-price="100" data-hunger="50">
+                    <span class="food-icon">🍲</span>
+                    <span class="food-name">Lẩu (Xịn)</span>
+                    <span class="food-price">100đ</span>
+                </button>
+                <button class="food-item" data-food="burger" data-price="55" data-hunger="30">
+                    <span class="food-icon">🍔</span>
+                    <span class="food-name">Burger</span>
+                    <span class="food-price">55đ</span>
+                </button>
+                <button class="food-item" data-food="pizza" data-price="80" data-hunger="45">
+                    <span class="food-icon">🍕</span>
+                    <span class="food-name">Pizza</span>
+                    <span class="food-price">80đ</span>
+                </button>
+            </div>
+        </div>
+
+        <div class="actions">
+            <button class="action-btn earn-btn" id="earnMoney">
+                💰 Kiếm Tiền (Đi làm thêm)
+            </button>
+            <button class="action-btn reset-btn" id="resetGame">
+                🔄 Chơi Lại
+            </button>
+        </div>
+
+        <div class="notifications" id="notifications"></div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

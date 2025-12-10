@@ -1,0 +1,452 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Comic Sans MS', 'Arial', sans-serif;
+    background: linear-gradient(135deg, #a8e6cf 0%, #dcedc1 50%, #ffd3b6 100%);
+    min-height: 100vh;
+    padding: 20px;
+    color: #333;
+}
+
+.container {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+header {
+    text-align: center;
+    margin-bottom: 30px;
+    animation: bounce 2s infinite;
+}
+
+@keyframes bounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+}
+
+.title {
+    font-size: 3em;
+    color: #fff;
+    text-shadow: 4px 4px 0px #ff006e,
+                 8px 8px 0px #8338ec;
+    margin-bottom: 10px;
+    letter-spacing: 3px;
+}
+
+.subtitle {
+    font-size: 1.3em;
+    color: #ffbe0b;
+    font-weight: bold;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+}
+
+.stats-bar {
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 15px;
+    padding: 20px;
+    margin-bottom: 30px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.stat {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.stat-label {
+    font-weight: bold;
+    color: #8338ec;
+    font-size: 1.1em;
+}
+
+.stat-value {
+    font-size: 1.5em;
+    font-weight: bold;
+    color: #ff006e;
+}
+
+.hunger-bar {
+    width: 200px;
+    height: 25px;
+    background: #e0e0e0;
+    border-radius: 15px;
+    overflow: hidden;
+    border: 3px solid #8338ec;
+}
+
+.hunger-fill {
+    height: 100%;
+    background: linear-gradient(90deg, #ff006e, #ffbe0b);
+    transition: width 0.5s ease;
+    width: 100%;
+}
+
+#hungerText {
+    font-weight: bold;
+    color: #ff006e;
+    font-size: 1.2em;
+}
+
+.character-container {
+    position: relative;
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 20px;
+    padding: 40px;
+    margin-bottom: 30px;
+    min-height: 400px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+}
+
+.character {
+    width: 200px;
+    height: 250px;
+    position: relative;
+    animation: idle 3s ease-in-out infinite;
+}
+
+@keyframes idle {
+    0%, 100% { transform: translateY(0) rotate(0deg); }
+    50% { transform: translateY(-5px) rotate(2deg); }
+}
+
+.face {
+    width: 150px;
+    height: 150px;
+    background: #ffd60a;
+    border-radius: 50%;
+    position: relative;
+    margin: 0 auto;
+    border: 4px solid #333;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+
+.eyes {
+    display: flex;
+    justify-content: space-around;
+    padding: 40px 30px 0;
+}
+
+.eye {
+    width: 25px;
+    height: 25px;
+    background: #333;
+    border-radius: 50%;
+    position: relative;
+    animation: blink 4s infinite;
+}
+
+.eye::after {
+    content: '';
+    width: 10px;
+    height: 10px;
+    background: white;
+    border-radius: 50%;
+    position: absolute;
+    top: 5px;
+    left: 5px;
+}
+
+@keyframes blink {
+    0%, 96%, 100% { transform: scaleY(1); }
+    98% { transform: scaleY(0.1); }
+}
+
+.mouth {
+    width: 60px;
+    height: 30px;
+    border: 4px solid #333;
+    border-top: none;
+    border-radius: 0 0 60px 60px;
+    position: absolute;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    transition: all 0.3s ease;
+}
+
+.mouth.happy {
+    height: 40px;
+    border-radius: 0 0 80px 80px;
+}
+
+.mouth.sad {
+    height: 20px;
+    border-bottom: none;
+    border-top: 4px solid #333;
+    border-radius: 60px 60px 0 0;
+    bottom: 25px;
+}
+
+.body {
+    width: 100px;
+    height: 80px;
+    background: #06ffa5;
+    margin: 10px auto 0;
+    border-radius: 50px 50px 20px 20px;
+    border: 4px solid #333;
+}
+
+.arms {
+    position: absolute;
+    top: 160px;
+    width: 100%;
+}
+
+.arm {
+    width: 50px;
+    height: 15px;
+    background: #ffd60a;
+    border: 3px solid #333;
+    border-radius: 10px;
+    position: absolute;
+}
+
+.arm.left {
+    left: 20px;
+    transform: rotate(-30deg);
+    animation: wave-left 2s infinite;
+}
+
+.arm.right {
+    right: 20px;
+    transform: rotate(30deg);
+    animation: wave-right 2s infinite;
+}
+
+@keyframes wave-left {
+    0%, 100% { transform: rotate(-30deg); }
+    50% { transform: rotate(-45deg); }
+}
+
+@keyframes wave-right {
+    0%, 100% { transform: rotate(30deg); }
+    50% { transform: rotate(45deg); }
+}
+
+.speech-bubble {
+    background: white;
+    padding: 15px 25px;
+    border-radius: 20px;
+    border: 3px solid #333;
+    position: relative;
+    margin-top: 20px;
+    font-size: 1.2em;
+    font-weight: bold;
+    color: #8338ec;
+    max-width: 80%;
+    text-align: center;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+
+.speech-bubble::before {
+    content: '';
+    position: absolute;
+    top: -15px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0;
+    height: 0;
+    border-left: 15px solid transparent;
+    border-right: 15px solid transparent;
+    border-bottom: 15px solid #333;
+}
+
+.speech-bubble::after {
+    content: '';
+    position: absolute;
+    top: -9px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0;
+    height: 0;
+    border-left: 12px solid transparent;
+    border-right: 12px solid transparent;
+    border-bottom: 12px solid white;
+}
+
+.food-menu {
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 20px;
+    padding: 30px;
+    margin-bottom: 30px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+}
+
+.food-menu h2 {
+    text-align: center;
+    color: #8338ec;
+    margin-bottom: 25px;
+    font-size: 2em;
+}
+
+.food-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    gap: 15px;
+}
+
+.food-item {
+    background: linear-gradient(135deg, #66d9ef 0%, #52c1a8 100%);
+    border: none;
+    border-radius: 15px;
+    padding: 20px 15px;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    transition: all 0.3s ease;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    color: white;
+    font-family: 'Comic Sans MS', 'Arial', sans-serif;
+}
+
+.food-item:hover {
+    transform: translateY(-5px) scale(1.05);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+}
+
+.food-item:active {
+    transform: translateY(-2px) scale(1.02);
+}
+
+.food-icon {
+    font-size: 3em;
+}
+
+.food-name {
+    font-weight: bold;
+    font-size: 1.1em;
+}
+
+.food-price {
+    background: rgba(255,255,255,0.3);
+    padding: 5px 15px;
+    border-radius: 20px;
+    font-weight: bold;
+}
+
+.actions {
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+    margin-bottom: 30px;
+    flex-wrap: wrap;
+}
+
+.action-btn {
+    padding: 15px 30px;
+    border: none;
+    border-radius: 15px;
+    font-size: 1.2em;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    font-family: 'Comic Sans MS', 'Arial', sans-serif;
+}
+
+.earn-btn {
+    background: linear-gradient(135deg, #ffd60a, #ff9500);
+    color: #333;
+}
+
+.reset-btn {
+    background: linear-gradient(135deg, #ff006e, #8338ec);
+    color: white;
+}
+
+.action-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+}
+
+.action-btn:active {
+    transform: translateY(-1px);
+}
+
+.notifications {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 1000;
+}
+
+.notification {
+    background: white;
+    padding: 15px 25px;
+    border-radius: 10px;
+    margin-bottom: 10px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    border-left: 5px solid #06ffa5;
+    font-weight: bold;
+    animation: slideIn 0.3s ease;
+    max-width: 300px;
+}
+
+.notification.error {
+    border-left-color: #ff006e;
+    color: #ff006e;
+}
+
+.notification.success {
+    border-left-color: #06ffa5;
+    color: #06ffa5;
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateX(400px);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+@keyframes eating {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+}
+
+.character.eating {
+    animation: eating 0.5s ease 3;
+}
+
+@media (max-width: 768px) {
+    .title {
+        font-size: 2em;
+    }
+
+    .subtitle {
+        font-size: 1em;
+    }
+
+    .stats-bar {
+        flex-direction: column;
+    }
+
+    .food-grid {
+        grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+    }
+
+    .notifications {
+        right: 10px;
+        left: 10px;
+    }
+}
